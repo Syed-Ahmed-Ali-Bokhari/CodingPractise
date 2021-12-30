@@ -1,3 +1,19 @@
+if error like this come 
+
+PROBLEM
+
+Synavoss-MBP-5:CodingPractise ahmedbokhari$ git push -u origin master
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+coding questions are placed
+
+=====================
+
+SOLUTION
+
 if unable to push it on github 
 
 create the SSH keys, type ssh-keygen -t rsa -C "your_email@example.com". This will create both id_rsa and id_rsa.pub files.
