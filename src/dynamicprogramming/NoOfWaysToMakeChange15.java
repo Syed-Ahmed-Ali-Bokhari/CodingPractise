@@ -9,7 +9,7 @@ public class NoOfWaysToMakeChange15 {
 		Arrays.fill(ways,0);
 		ways[0] = 1;
 		for (int denom : denoms) {
-			for (int amount = 1; amount <= n; amount++) {
+			for (int amount = 1; amount < ways.length; amount++) {
 				if (denom <= amount) {
 					ways[amount]+=ways[amount-denom];
 				}
