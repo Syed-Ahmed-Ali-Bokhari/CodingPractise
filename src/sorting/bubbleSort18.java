@@ -1,7 +1,5 @@
 package sorting;
 
-import java.util.Arrays;
-
 public class bubbleSort18 {
 
 	// (Find all triplets with the given sum)
@@ -24,7 +22,7 @@ public class bubbleSort18 {
 
 	public static void main(String[] args) {
 
-		int[] array = new int[] { 8,5,2,9,5,6,3 };
+		int[] array = new int[] { 8, 5, 2, 9, 5, 6, 3 };
 
 		int[] result = bubbleSort18.bubbleSort(array);
 		for (int res : result)
