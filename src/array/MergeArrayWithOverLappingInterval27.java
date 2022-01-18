@@ -1,11 +1,6 @@
 package array;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 
 public class MergeArrayWithOverLappingInterval27 {
 
@@ -23,18 +18,15 @@ public class MergeArrayWithOverLappingInterval27 {
 		ArrayList<Pair> result = new ArrayList<Pair>();
 		result.add(new Pair(v.get(0).first, v.get(0).second));
 		for (int i = 1; i < v.size(); i++) {
-			int x1=v.get(i).first;
-			int x2=v.get(i).second;
-			int y1=result.get(result.size()-1).first;
-			int y2=result.get(result.size()-1).second;
-			
-			if(y2>=x1)
-			{
-				result.get(result.size()-1).second=Math.max(x2 ,y2);
-			}
-			else
-				result.add(new Pair(x1,x2));
-					
+			int x1 = v.get(i).first;
+			int x2 = v.get(i).second;
+			int y1 = result.get(result.size() - 1).first;
+			int y2 = result.get(result.size() - 1).second;
+
+			if (y2 >= x1) {
+				result.get(result.size() - 1).second = Math.max(x2, y2);
+			} else
+				result.add(new Pair(x1, x2));
 
 		}
 
@@ -50,12 +42,12 @@ public class MergeArrayWithOverLappingInterval27 {
 		v.add(new Pair(6, 8));
 
 		ArrayList<Pair> result = MergeArrayWithOverLappingInterval27.mergeIntervals(v);
-		
-		for(Pair p:result) {
+
+		for (Pair p : result) {
 			System.out.println(p.first);
 			System.out.println(p.second);
 		}
-		
+
 	}
 
 }
