@@ -5,16 +5,44 @@ public class FindLowHighIndexOfAKeySortedArray29 {
 	// Reverse words in a String
 
 	public static int findEndingIndex(int[] array, int target) {
-		return 0;
+		int left = 0;
+		int right = array.length - 1;
+		int index = -1;
+		while (left <= right) {
+			int mid = (left + right) / 2;
+			if (array[mid] <= target) {
+				left = mid + 1;
+
+			} else
+				right = mid - 1;
+			if (array[mid] == target)
+				index = mid;
+		}
+
+		return index;
 	}
 
 	public static int findStartingIndex(int[] array, int target) {
-		return 0;
+		int index=-1;
+		int left = 0;
+		int right = array.length - 1;
+		while (left <= right) {
+			int mid = (left + right) / 2;
+			if (target <= array[mid]) {
+				right = mid - 1;
+
+			} else
+				left = mid + 1;
+			if (array[mid] == target)
+				index = mid;
+		}
+
+		return index;
 	}
 
 	public static void main(String[] args) {
 
-		int[] array = new int[] { 5, 7, 7, 8, 8, 10 };
+		int[] array = new int[] { 5, 7, 8, 8, 8, 10, 11 };
 		int target = 8;
 
 		int result = FindLowHighIndexOfAKeySortedArray29.findEndingIndex(array, target);
