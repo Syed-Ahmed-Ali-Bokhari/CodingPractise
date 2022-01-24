@@ -46,9 +46,9 @@ public class FindLowHighIndexOfAKeySortedArray29 {
 		int target = 8;
 
 		int result = FindLowHighIndexOfAKeySortedArray29.findEndingIndex(array, target);
-		System.out.println(result);
+		System.out.println("ENDING INDEX ="+ " "+result);
 		int result1 = FindLowHighIndexOfAKeySortedArray29.findStartingIndex(array, target);
-		System.out.println(result1);
+		System.out.println("STARTING INDEX ="+ " "+result1);
 
 	}
 
