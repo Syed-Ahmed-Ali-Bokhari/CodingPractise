@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class DeleteOccurenceOfKeyInLinkedList32 {
-	//List is sorted 
+	// List is sorted
 
 	static class LinkedList {
 		int value;
@@ -33,21 +33,42 @@ public class DeleteOccurenceOfKeyInLinkedList32 {
 			LinkedList current = head;
 			LinkedList prev = null;
 			Set<Integer> seen = new HashSet<Integer>();
-			while (current!=null) {
+			while (current != null) {
 				if (!seen.contains(current.value)) {
 					seen.add(current.value);
 					prev = current;
+					current = current.next;
+				} else {
+					prev.next = current.next;
+					current = current.next;
+				}
+
+			}
+			return head;
+		}
+
+		public static LinkedList deleteKey(LinkedList head, int data) {
+			LinkedList current = head;
+			LinkedList prev = null;
+			
+			if(head.value==data)
+				return head=head.next;
+		
+			while (current!=null) {
+				if (current.value==data) {
+				
+					prev.next=current.next;
 					current=current.next;
 				}
 				else
-				{
-					prev.next = current.next;
+				{	prev = current;
 					current=current.next;
 				}
 				
 		}
 			return head;
 		}
+
 		public static void display(LinkedList head) {
 			LinkedList temp = head;
 			while (temp != null) {
@@ -68,7 +89,9 @@ public class DeleteOccurenceOfKeyInLinkedList32 {
 		LinkedList.display(listHead);
 		listHead = LinkedList.removeDuplicatesFromLinkedList(listHead);
 		LinkedList.display(listHead);
-
+		int deleteKey = 5;
+		listHead = LinkedList.deleteKey(listHead, deleteKey);
+		LinkedList.display(listHead);
 	}
 
 }
