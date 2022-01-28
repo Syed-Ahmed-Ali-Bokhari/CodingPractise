@@ -113,6 +113,23 @@ public class SwapNthNodeWithHead35 {
 
 		}
 
+		public static LinkedList swapNthNode(LinkedList head, int n) {
+			if(head==null) return null;
+			if(n==1) return head;
+			LinkedList current = head;
+			LinkedList prev = null;
+			for (int i = 1; i < n && current != null; i++) {
+				prev=current;
+				current=current.next;
+			}
+			if(current==null) return current;
+			LinkedList temp = head.next;
+			prev.next=head;
+			head.next=current.next;
+			current.next=temp;
+			return current;
+		}
+
 	}
 
 	public static void main(String[] args) {
@@ -124,10 +141,11 @@ public class SwapNthNodeWithHead35 {
 		int deleteKey = 5;
 		listHead = LinkedList.deleteKey(listHead, deleteKey);
 		// LinkedList.display(listHead);
-		int[] list3 = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-		int k = 4;
+		int[] list3 = new int[] { 7, 14, 21, 28, 35, 42 };
+		int n = 4;
 		LinkedList listHead3 = LinkedList.createLinkedList(list3);
-		LinkedList listHead4 = LinkedList.removeFromEnd(listHead3, k);
+		LinkedList.display(listHead3);
+		LinkedList listHead4 = LinkedList.swapNthNode(listHead3, n);
 		LinkedList.display(listHead4);
 	}
 
