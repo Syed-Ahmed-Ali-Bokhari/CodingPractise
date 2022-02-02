@@ -3,7 +3,7 @@ package linkedlist;
 import java.util.HashSet;
 import java.util.Set;
 
-public class rotateLinkedList37 {
+public class addTwoIntegerByLinkedList39 {
 	// List is sorted
 
 	static class LinkedList {
@@ -197,15 +197,74 @@ public class rotateLinkedList37 {
 			return head;
 		}
 
+		public static LinkedList merge(LinkedList list1, LinkedList list2) {
+			if (list1 == null)
+				return list2;
+			if (list2 == null)
+				return list1;
+			LinkedList head = list1;
+			while (list1 != null && list2 != null) {
+				LinkedList temp = list2;
+				list2 = list2.next;
+				temp.next = list1.next;
+				list1.next = temp;
+				list1 = temp.next;
+			}
+			if (list1 == null)
+				list1.next = list2;
+			return head;
+		}
+
+		public static LinkedList rotateEven(LinkedList head) {
+			LinkedList current = head;
+			LinkedList evenList = null;
+			while (current != null && current.next != null) {
+				LinkedList even = current.next;
+				current.next = even.next;
+				even.next = evenList;
+				evenList = even;
+				current = current.next;
+			}
+			return merge(head, evenList);
+		}
+
+		public static LinkedList addTwoLinkedList(LinkedList current1, LinkedList current2) {
+			LinkedList result = null;
+			LinkedList last = null;
+			int carry = 0;
+			while (current1 != null || current2 != null || carry > 0) {
+				int integer1 = (current1 == null ? 0 : current1.value);
+				int integer2 = (current2 == null ? 0 : current2.value);
+
+				int sum = (integer1 + integer2 + carry);
+				LinkedList pNew = new LinkedList(sum % 10);
+				carry = sum / 10;
+				if (result == null) {
+					result = pNew;
+				} else {
+					last.next = pNew;
+				}
+				last = pNew;
+				if (current1 != null)
+					current1 = current1.next;
+				if (current2 != null)
+					current2 = current2.next;
+			}
+			return result;
+
+		}
 	}
 
 	public static void main(String[] args) {
 
-		int[] list = new int[] { 1, 2, 3, 4, 5 };
-		int n = -2;
+		int[] list = new int[] { 1, 0, 9, 9 };
 		LinkedList listHead = LinkedList.createLinkedList(list);
-		LinkedList listHead1 = LinkedList.rotateLinkedList(listHead, n);
-		LinkedList.display(listHead1);
+		LinkedList.display(listHead);
+		int[] list2 = new int[] { 7, 3, 2 };
+		LinkedList listHead2 = LinkedList.createLinkedList(list2);
+		LinkedList.display(listHead2);
+		LinkedList listHead3 = LinkedList.addTwoLinkedList(listHead, listHead2);
+		LinkedList.display(listHead3);
 	}
 
 }

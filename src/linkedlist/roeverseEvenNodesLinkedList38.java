@@ -169,7 +169,7 @@ public class roeverseEvenNodesLinkedList38 {
 		public static int adjustRotation(int length, int n) {
 			n = n % length;
 			if (n < 0) {
-				n = n +length;
+				n = n + length;
 			}
 
 			return n;
@@ -179,31 +179,61 @@ public class roeverseEvenNodesLinkedList38 {
 		public static LinkedList rotateLinkedList(LinkedList head, int k) {
 			int length = LinkedList.lenghtLinkedList(head);
 			int n = LinkedList.adjustRotation(length, k);
-			if (n==0)return head;
-			int rotate = length - n -1;
+			if (n == 0)
+				return head;
+			int rotate = length - n - 1;
 			LinkedList current = head;
-			while (rotate > 0 ) {
-				current=current.next;
-			rotate--;
+			while (rotate > 0) {
+				current = current.next;
+				rotate--;
 			}
 			LinkedList temp = current.next;
 			LinkedList newHead = temp;
 			current.next = null;
-			while (temp.next!=null)
+			while (temp.next != null)
 				temp = temp.next;
-			temp.next= head;
+			temp.next = head;
 			head = newHead;
 			return head;
 		}
 
+		public static LinkedList merge(LinkedList list1, LinkedList list2) {
+			if (list1 == null)
+				return list2;
+			if (list2 == null)
+				return list1;
+			LinkedList head = list1;
+			while (list1 != null && list2 != null) {
+				LinkedList temp = list2;
+				list2 = list2.next;
+				temp.next = list1.next;
+				list1.next = temp;
+				list1 = temp.next;
+			}
+			if (list1 == null)
+				list1.next = list2;
+			return head;
+		}
+		public static LinkedList rotateEven(LinkedList head) {
+			LinkedList current = head;
+			LinkedList evenList = null;
+			while (current != null && current.next != null) {
+				LinkedList even = current.next;
+				current.next = even.next;
+				even.next = evenList;
+				evenList = even;
+				current = current.next;
+			}
+			return merge(head, evenList);
+		}
 	}
 
 	public static void main(String[] args) {
 
-		int[] list = new int[] { 1, 2, 3, 4, 5 };
-		int n = 2;
+		int[] list = new int[] { 7, 14, 21, 28, 9 };
 		LinkedList listHead = LinkedList.createLinkedList(list);
-		LinkedList listHead1 = LinkedList.rotateLinkedList(listHead, n);
+		LinkedList.display(listHead);
+		LinkedList listHead1 = LinkedList.rotateEven(listHead);
 		LinkedList.display(listHead1);
 	}
 
