@@ -18,6 +18,7 @@ public class ArraySubsetOfAnotherArray54 {
 		for (int i = 0; i < array1.length; i++) {
 			if (!hset.contains(array1[i]))
 				return false;
+			
 		}
 
 		return true;
