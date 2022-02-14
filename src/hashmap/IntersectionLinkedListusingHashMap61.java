@@ -1,11 +1,6 @@
-package linkedlist;
+package hashmap;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-public class IntersectionLinkedList53 {
+public class IntersectionLinkedListusingHashMap61 {
 
 	// logic is correct but wont able to execute
 
@@ -73,40 +68,14 @@ public class IntersectionLinkedList53 {
 		public static LinkedList intersection(LinkedList head, LinkedList head1) {
 			LinkedList current = head;
 			LinkedList temp = head1;
-			Set<Integer> hset = new HashSet<Integer>();
 			LinkedList result = null;
 			while (current != null) {
-				if (!hset.contains(current.value))
-					hset.add(current.value);
-				current = current.next;
-			}
-			while (temp != null) {
-				if (hset.contains(temp.value)) {
-					result.insertAtHead(temp.value);
-					hset.remove(temp.value);
-			}
-				temp = temp.next;
-			}
-			return result;
-		}
-		public static LinkedList union(LinkedList head, LinkedList head1) {
-			LinkedList current = head;
-			LinkedList temp = head1;
-			Set<Integer> hset = new HashSet<Integer>();
-			LinkedList result = null;
-			while (current != null) {
-				if (!hset.contains(current.value)) {
+
+				if (contains(current.value, temp))
 					result.insertAtHead(current.value);
-					hset.add(current.value);
-				}
+
 				current = current.next;
-			}
-			while (temp != null) {
-				if (!hset.contains(temp.value)) {
-					result.insertAtHead(temp.value);
-					hset.add(temp.value);
-			}
-				temp = temp.next;
+
 			}
 			return result;
 		}
@@ -116,6 +85,15 @@ public class IntersectionLinkedList53 {
 
 		}
 
+		private static boolean contains(int value2, LinkedList current) {
+			while (current != null) {
+				if (current.value == (value2)) {
+					return true;
+				}
+			}
+			return false;
+
+		}
 	}
 
 	public static void main(String[] args) {
