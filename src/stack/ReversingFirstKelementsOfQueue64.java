@@ -23,7 +23,6 @@ public class ReversingFirstKelementsOfQueue64 {
 		return q;
 
 	}
-
 	public static void main(String[] args) {
 
 	}
