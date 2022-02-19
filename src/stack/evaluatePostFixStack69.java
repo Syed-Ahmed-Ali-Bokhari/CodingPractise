@@ -1,42 +1,46 @@
 package stack;
 
-import java.util.Arrays;
 import java.util.Stack;
 
 public class evaluatePostFixStack69 {
 
-	public static Stack sort(Stack<Integer> stack) {
+	public static Integer evaluate(String str) {
 		Stack<Integer> newStack = new Stack<Integer>();
-		while (!stack.isEmpty()) {
-			Integer value = stack.pop();
 
-			if (!newStack.isEmpty() && newStack.peek() < value) {
-				newStack.push(value);
-			}
+		for (int i = 0; i < str.length(); i++) {
+			char character = str.charAt(i);
+			if (!Character.isDigit(character)) {
+				Integer a = newStack.pop();
+				Integer b = newStack.pop();
 
-			else {
-				while (!newStack.isEmpty() && newStack.peek() >= value) {
-					stack.push(newStack.pop());
+				switch (character) {
+
+				case '+':
+					newStack.push(b + a);
+					break;
+				case '-':
+					newStack.push(b - a);
+					break;
+				case '/':
+					newStack.push(b / a);
+					break;
+				case '*':
+					newStack.push(b * a);
+					break;
+
 				}
-				newStack.push(value);
-			}
+			} else
+				newStack.push(Character.getNumericValue(character));
 
 		}
-		while (!newStack.isEmpty())
-			stack.push(newStack.pop());
 
-		return stack;
+		return newStack.pop();
 
 	}
 
 	public static void main(String[] args) {
-		Stack<Integer> stack = new Stack<Integer>();
-		stack.push(7);
-		stack.push(5);
-		stack.push(1);
-		stack.push(3);
-		Stack<Integer> result = evaluatePostFixStack69.sort(stack);
-		System.out.println(Arrays.toString(result.toArray()));
+		Integer result = evaluatePostFixStack69.evaluate("53+62/*35*+");
+		System.out.println(result);
 	}
 
 }

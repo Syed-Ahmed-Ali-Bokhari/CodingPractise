@@ -1,42 +1,35 @@
 package stack;
 
-import java.util.Arrays;
 import java.util.Stack;
 
 public class nextGreaterElementUsingStack70 {
 
-	public static Stack sort(Stack<Integer> stack) {
-		Stack<Integer> newStack = new Stack<Integer>();
-		while (!stack.isEmpty()) {
-			Integer value = stack.pop();
+	public static int[] nextGreater(int[] array) {
+		Stack<Integer> stack = new Stack<Integer>();
+		int[] result = new int[array.length];
+		for (int i = array.length - 1; i >= 0; i--) {
 
-			if (!newStack.isEmpty() && newStack.peek() < value) {
-				newStack.push(value);
-			}
+			if (!stack.isEmpty()) {
 
-			else {
-				while (!newStack.isEmpty() && newStack.peek() >= value) {
-					stack.push(newStack.pop());
-				}
-				newStack.push(value);
+				while (!stack.isEmpty() && stack.peek() <= array[i])
+					stack.pop();
 			}
+			if (stack.isEmpty())
+				result[i] = -1;
+			else
+				result[i] = stack.peek();
+			stack.push(array[i]);
 
 		}
-		while (!newStack.isEmpty())
-			stack.push(newStack.pop());
 
-		return stack;
-
+		return result;
 	}
 
 	public static void main(String[] args) {
-		Stack<Integer> stack = new Stack<Integer>();
-		stack.push(7);
-		stack.push(5);
-		stack.push(1);
-		stack.push(3);
-		Stack<Integer> result = nextGreaterElementUsingStack70.sort(stack);
-		System.out.println(Arrays.toString(result.toArray()));
+		int[] array = new int[] { 98,99,100,11};
+		int[] result = nextGreaterElementUsingStack70.nextGreater(array);
+		for (int res : result)
+			System.out.println(res);
 	}
 
 }
