@@ -26,7 +26,7 @@ public class nextGreaterElementUsingStack70 {
 	}
 
 	public static void main(String[] args) {
-		int[] array = new int[] { 98,99,100,11};
+		int[] array = new int[] { 13, 6, 7, 11 };
 		int[] result = nextGreaterElementUsingStack70.nextGreater(array);
 		for (int res : result)
 			System.out.println(res);
