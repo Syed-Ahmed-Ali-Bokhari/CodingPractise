@@ -1,6 +1,6 @@
 package recursion;
 
-public class exponention85 {
+public class exponention75 {
 
 	public static int exponent(int n) {
 		if (n == 0)
@@ -10,7 +10,7 @@ public class exponention85 {
 
 	public static void main(String[] args) {
 		int n = 4;
-		System.out.println(exponention85.exponent(n));
+		System.out.println(exponention75.exponent(n));
 	}
 
 }

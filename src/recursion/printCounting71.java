@@ -1,6 +1,6 @@
 package recursion;
 
-public class printCounting81 {
+public class printCounting71 {
 
 	public static void count(int n) {
 		if (n == 0)
@@ -12,7 +12,7 @@ public class printCounting81 {
 
 	public static void main(String[] args) {
 		int n = 5;
-		printCounting81.count(n);
+		printCounting71.count(n);
 	}
 
 }
