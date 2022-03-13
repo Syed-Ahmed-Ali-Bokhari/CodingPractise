@@ -2,11 +2,11 @@ package graphs;
 
 import java.util.*;
 
-public class implementBFS80 {
+public class pathExistBetweenTwoVertices83 {
 	int vertices;
 	DoublyLinkedList adjacent[];
 
-	public implementBFS80(int vertices) {
+	public pathExistBetweenTwoVertices83(int vertices) {
 		this.vertices = vertices;
 
 		adjacent = new DoublyLinkedList[vertices];
@@ -21,46 +21,36 @@ public class implementBFS80 {
 			this.adjacent[source].addNode(destination);
 	}
 
-	public static String bfs(Graph79 g) {
-		String result = "";
-		if (g.vertices < 1)
-			return result;
 
+
+	public static boolean pathExist(Graph79 g, int source,int destination) {
+		
+		if(source == destination)
+			return true;
+		
 		boolean[] visit = new boolean[g.vertices];
-		for (int i = 0; i < g.vertices; i++) {
-			if (!visit[i])
-				result += bfsvisit(g, i, visit);
-
-		}
-
-		return result;
-
-	}
-
-	public static String bfsvisit(Graph79 g, int source, boolean[] visit) {
-		String result = "";
-
-		Queue queue = new Queue(g.vertices);
-		queue.enqueue(source);
+		Stack stack = new Stack(g.vertices);
+		stack.push(source);
 		visit[source] = true;
-		while (!queue.isEmpty()) {
-			int current = queue.dequeue();
-			result += String.valueOf(current);
+		while (!stack.isEmpty()) {
+			int current = stack.pop();
 			DoublyLinkedList.Node temp = null;
 			if (g.adjacent[current] != null) {
 				temp = g.adjacent[current].head;
 				
 				while(temp!=null) {
 					if(!visit[temp.data]) {
-						queue.enqueue(temp.data);
-						visit[temp.data] = true;
+						if(temp.data == destination)
+							return true;
+						stack.push(temp.data);
 					}
 					temp=temp.next;
 				}
+				visit[current]=true;
 			}
 		}
 
-		return result;
+		return false;
 	}
 
 	public static void main(String[] args) {

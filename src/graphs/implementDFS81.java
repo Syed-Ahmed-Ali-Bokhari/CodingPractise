@@ -2,11 +2,11 @@ package graphs;
 
 import java.util.*;
 
-public class implementBFS80 {
+public class implementDFS81 {
 	int vertices;
 	DoublyLinkedList adjacent[];
 
-	public implementBFS80(int vertices) {
+	public implementDFS81(int vertices) {
 		this.vertices = vertices;
 
 		adjacent = new DoublyLinkedList[vertices];
@@ -21,7 +21,7 @@ public class implementBFS80 {
 			this.adjacent[source].addNode(destination);
 	}
 
-	public static String bfs(Graph79 g) {
+	public static String dfs(Graph79 g) {
 		String result = "";
 		if (g.vertices < 1)
 			return result;
@@ -29,7 +29,7 @@ public class implementBFS80 {
 		boolean[] visit = new boolean[g.vertices];
 		for (int i = 0; i < g.vertices; i++) {
 			if (!visit[i])
-				result += bfsvisit(g, i, visit);
+				result += dfsvisit(g, i, visit);
 
 		}
 
@@ -37,14 +37,14 @@ public class implementBFS80 {
 
 	}
 
-	public static String bfsvisit(Graph79 g, int source, boolean[] visit) {
+	public static String dfsvisit(Graph79 g, int source, boolean[] visit) {
 		String result = "";
 
-		Queue queue = new Queue(g.vertices);
-		queue.enqueue(source);
+		Stack stack = new Stack(g.vertices);
+		stack.push(source);
 		visit[source] = true;
-		while (!queue.isEmpty()) {
-			int current = queue.dequeue();
+		while (!stack.isEmpty()) {
+			int current = stack.pop();
 			result += String.valueOf(current);
 			DoublyLinkedList.Node temp = null;
 			if (g.adjacent[current] != null) {
@@ -52,11 +52,11 @@ public class implementBFS80 {
 				
 				while(temp!=null) {
 					if(!visit[temp.data]) {
-						queue.enqueue(temp.data);
-						visit[temp.data] = true;
+						stack.push(temp.data);
 					}
 					temp=temp.next;
 				}
+				visit[current]=true;
 			}
 		}
 
