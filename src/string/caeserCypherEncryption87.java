@@ -2,7 +2,7 @@ package string;
 
 import java.util.HashMap;
 
-class practise {
+class caeserCypherEncryption87 {
 
 	public static String prac(String str) {
 		String result = "";
@@ -31,7 +31,7 @@ class practise {
 	public static void main(String[] args) {
 		String str = "aaawwwhhsjjjaa";
 		// a3w3h2s1j3a2
-		System.out.println(practise.prac(str));
+		System.out.println(caeserCypherEncryption87.prac(str));
 	}
 }
 
