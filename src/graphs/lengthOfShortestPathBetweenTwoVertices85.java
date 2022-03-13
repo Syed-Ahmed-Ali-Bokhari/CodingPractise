@@ -21,31 +21,17 @@ public class lengthOfShortestPathBetweenTwoVertices85 {
 			this.adjacent[source].addNode(destination);
 	}
 
-	public static String bfs(Graph79 g) {
-		String result = "";
-		if (g.vertices < 1)
-			return result;
 
+	public static int findMin(Graph79 g, int source, int destination) {
+		if(source == destination)
+			return 0;
+		int[] distance = new int[g.vertices];
 		boolean[] visit = new boolean[g.vertices];
-		for (int i = 0; i < g.vertices; i++) {
-			if (!visit[i])
-				result += bfsvisit(g, i, visit);
-
-		}
-
-		return result;
-
-	}
-
-	public static String bfsvisit(Graph79 g, int source, boolean[] visit) {
-		String result = "";
-
 		Queue queue = new Queue(g.vertices);
 		queue.enqueue(source);
 		visit[source] = true;
 		while (!queue.isEmpty()) {
 			int current = queue.dequeue();
-			result += String.valueOf(current);
 			DoublyLinkedList.Node temp = null;
 			if (g.adjacent[current] != null) {
 				temp = g.adjacent[current].head;
@@ -54,13 +40,17 @@ public class lengthOfShortestPathBetweenTwoVertices85 {
 					if(!visit[temp.data]) {
 						queue.enqueue(temp.data);
 						visit[temp.data] = true;
+						distance[temp.data]=distance[current]+1;
+					}
+					if(temp.data == destination) {
+						return distance[destination];
 					}
 					temp=temp.next;
 				}
 			}
 		}
 
-		return result;
+		return -1;
 	}
 
 	public static void main(String[] args) {

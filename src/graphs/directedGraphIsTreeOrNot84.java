@@ -21,31 +21,16 @@ public class directedGraphIsTreeOrNot84 {
 			this.adjacent[source].addNode(destination);
 	}
 
-	public static String bfs(Graph79 g) {
-		String result = "";
-		if (g.vertices < 1)
-			return result;
 
+	public static boolean isTree(Graph79 g) {
+		int root=0;
 		boolean[] visit = new boolean[g.vertices];
-		for (int i = 0; i < g.vertices; i++) {
-			if (!visit[i])
-				result += bfsvisit(g, i, visit);
-
-		}
-
-		return result;
-
-	}
-
-	public static String bfsvisit(Graph79 g, int source, boolean[] visit) {
-		String result = "";
-
 		Queue queue = new Queue(g.vertices);
-		queue.enqueue(source);
-		visit[source] = true;
+		queue.enqueue(root);
+		visit[root] = true;
+		int noOfVisit = 1;
 		while (!queue.isEmpty()) {
 			int current = queue.dequeue();
-			result += String.valueOf(current);
 			DoublyLinkedList.Node temp = null;
 			if (g.adjacent[current] != null) {
 				temp = g.adjacent[current].head;
@@ -54,13 +39,17 @@ public class directedGraphIsTreeOrNot84 {
 					if(!visit[temp.data]) {
 						queue.enqueue(temp.data);
 						visit[temp.data] = true;
+						noOfVisit++;
 					}
+					else
+						return false;
 					temp=temp.next;
 				}
 			}
 		}
-
-		return result;
+		if(noOfVisit == g.vertices)
+			return true;
+		return false;
 	}
 
 	public static void main(String[] args) {
