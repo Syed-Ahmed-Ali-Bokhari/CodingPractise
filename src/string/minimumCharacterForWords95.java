@@ -68,7 +68,7 @@ public class minimumCharacterForWords95 {
 		String[] words = { "this", "that", "did", "deed", "them!", "a" };
 		char[] chr = minimumCharacterForWords95.minimumCharactersForWords(words);
 		for (char ch : chr)
-			System.out.println(ch);
+			System.out.print(ch +" ");
 
 	}
 
