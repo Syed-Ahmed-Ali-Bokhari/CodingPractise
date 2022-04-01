@@ -44,7 +44,7 @@ public class spiralTraverse97 {
 		int[][] arr = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
 		List<Integer> result = spiralTraverse97.spiralTraverse(arr);
 		for(int i=0;i<result.size();i++){
-		    System.out.println(result.get(i));
+		    System.out.print(result.get(i));
 		} 
 	}
 
