@@ -1,6 +1,6 @@
 package recursion;
 
-public class subset77 {
+public class subset8 {
 
 	// Reverse words in a String
 
@@ -23,7 +23,7 @@ public class subset77 {
 		String str = "abc";
 		int index = 0;
 		String output = "";
-		subset77.subset(str, index, output);
+		subset8.subset(str, index, output);
 
 	}
 

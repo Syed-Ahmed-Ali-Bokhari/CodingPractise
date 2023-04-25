@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 public class FirstDuplicateValue7 {
 
-	// Reverse words in a String
+	// first duplicate value {2,1,5,2,3,3,4} output = 2
 
 	public static int firstDuplicateValue(int[] array) {
 		HashSet<Integer> set = new HashSet<Integer>();

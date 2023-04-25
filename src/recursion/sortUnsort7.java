@@ -1,6 +1,6 @@
 package recursion;
 
-public class sortUnsort76 {
+public class sortUnsort7 {
 
 	// Reverse words in a String
 
@@ -16,7 +16,7 @@ public class sortUnsort76 {
 
 		int[] array = new int[] { 1, 2, 3, 4, 5 };
 		int index = 1;
-		boolean result = sortUnsort76.sortUnsort(array, index);
+		boolean result = sortUnsort7.sortUnsort(array, index);
 		System.out.println(result);
 
 	}

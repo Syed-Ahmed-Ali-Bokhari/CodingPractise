@@ -1,28 +1,31 @@
 package array;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class practise {
 
-	// Reverse words in a String
+    // Reverse words in a String
 
-	public static int[] arrayOfProducts() {
+    public static int firstDuplicateValue(int[] array) {
+        Set<Integer> set = new HashSet<Integer>();
+        for (int i: array) {
+            if (set.contains(i))
+                return i;
+            set.add(i);
 
-		for (int i = 13 ; i <= 27;i++) {
-			
-			
-		}
-		return null;
-		
-	}
+        }
 
-	public static void main(String[] args) {
+        return -1;
+    }
+    public static void main(String[] args) {
 
+        int[] array = new int[]{2,1,5,1,3,3,4};
 
-		
+        int result = practise.firstDuplicateValue(array);
+        System.out.println(result);
 
-		int[] result = practise.arrayOfProducts();
-		for (int res : result)
-			System.out.println(res);
-
-	}
+    }
 
 }

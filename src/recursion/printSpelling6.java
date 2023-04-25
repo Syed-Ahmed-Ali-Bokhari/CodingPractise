@@ -1,6 +1,6 @@
 package recursion;
 
-public class printSpelling74 {
+public class printSpelling6 {
 
 	public static void print(int n, String[] str) {
 		if (n == 0)
@@ -13,7 +13,7 @@ public class printSpelling74 {
 	public static void main(String[] args) {
 		String[] str = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten" };
 		int n = 432;
-		printSpelling74.print(n, str);
+		printSpelling6.print(n, str);
 	}
 
 }

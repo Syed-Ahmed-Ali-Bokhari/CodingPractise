@@ -1,6 +1,6 @@
 package recursion;
 
-public class factorial72 {
+public class factorial2 {
 
 	public static int factorial(int n) {
 		if (n == 0 || n == 1)
@@ -11,7 +11,7 @@ public class factorial72 {
 
 	public static void main(String[] args) {
 		int n = 5;
-		System.out.println(factorial72.factorial(n));
+		System.out.println(factorial2.factorial(n));
 	}
 
 }

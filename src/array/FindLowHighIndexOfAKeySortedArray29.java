@@ -2,7 +2,9 @@ package array;
 
 public class FindLowHighIndexOfAKeySortedArray29 {
 
-	// Reverse words in a String
+	// Find low/high index of a key in a sorted array
+	//input {5,7,7,8,8,10}
+	//start = 3 , end = 4 , target = 8
 
 	public static int findEndingIndex(int[] array, int target) {
 		int left = 0;
