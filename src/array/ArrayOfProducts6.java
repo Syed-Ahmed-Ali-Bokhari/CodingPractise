@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ArrayOfProducts6 {
 
-	// Reverse words in a String
+	// Array of product {5,1,4,2} ==> {8,40,10,20}
 
 	public static int[] arrayOfProducts(int[] array) {
 		int[] product = new int[array.length];
