@@ -3,6 +3,11 @@ package array;
 import java.util.ArrayList;
 
 public class MergeArrayWithOverLappingInterval27 {
+//merge an array with overlapping intervals
+// (1,5)  (3,7)  (4,6)  (6,8)  == > (1,8)
+// (10,12)  (12,15) == > (10,15)
+
+
 
 	static public class Pair {
 		int first;
