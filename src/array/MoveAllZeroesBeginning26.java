@@ -1,7 +1,8 @@
 package array;
 
 public class MoveAllZeroesBeginning26 {
-
+// int[] numArray = new int[] { 1, 0, 3, 4, 5, 0, 9, 0, 7, 6 };
+// output {0 ,0 ,0 ,1 ,3 ,4 ,5 ,9 ,7 ,6 }
 	public static int[] moveZeroToBeginning(int[] array) { // TODO Auto-generated method stub
 		int i = array.length-1;
 		int j = array.length-1;
@@ -26,7 +27,7 @@ public class MoveAllZeroesBeginning26 {
 
 		int[] result = MoveAllZeroesBeginning26.moveZeroToBeginning(numArray);
 		for (int num : result)
-			System.out.println(num);
+			System.out.print(num+ " ,");
 
 	}
 
