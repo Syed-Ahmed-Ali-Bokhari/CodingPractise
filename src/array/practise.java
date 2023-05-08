@@ -15,7 +15,9 @@ public class practise {
 
     }
 
-
+    private static int[] twoNumberSum(int[] array, int i) {
+        return array;
+    }
 
 
 }
