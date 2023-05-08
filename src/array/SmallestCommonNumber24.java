@@ -1,7 +1,12 @@
 package array;
 
 public class SmallestCommonNumber24 {
-
+//    smallest common number in a sorted array
+//    int[] array1 = new int[]{6, 21, 77, 88};
+//    int[] array2 = new int[]{1, 2, 6};
+//    int[] array3 = new int[]{0, 4, 5, 6};
+//
+//    out put ==> 6
 	public static int commonNumber(int[] array1, int[] array2, int[] array3) {
 
 		int i = 0, j = 0, k = 0;
