@@ -7,16 +7,20 @@ public class practise {
 
     public static void main(String[] args) {
 
-        int[] array = new int[] { 3, 5, -4, 8, 11, 1, -1, 6 };
+        List<Integer> array =   new ArrayList<Integer>();
+        array.add(1);
+        array.add(3);
+        array.add(5);
+        List<Integer> sequence =   new ArrayList<Integer>();
+        sequence.add(1);
+        sequence.add(3);
 
-        int[] result = practise.twoNumberSum(array, 10);
-        for (int res : result)
-            System.out.println(res);
-
+        System.out.println(practise.isValidSubsequence(array, sequence));
     }
 
-    private static int[] twoNumberSum(int[] array, int i) {
-        return array;
+    private static boolean isValidSubsequence(List<Integer> array, List<Integer> sequence) {
+
+        return false;
     }
 
 
