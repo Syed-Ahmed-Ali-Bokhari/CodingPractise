@@ -1,22 +1,26 @@
 package string;
 
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+
 class practice {
 
-	public static String caeser(String str, int key) {
-		char[] result = new char[str.length()];
-		String alpha="abcdefghijklmnopqrstuvwxyz";
-		for (int i = 0; i < str.length(); i++) {
-			int value =  (((str.charAt(i) + key) % 97) % 26);
-			result[i]=alpha.charAt(value);
-		}
-		return new String(result);
-	}
 
-// Driver code
-	public static void main(String[] args) {
-		String str = new String("xyz");
-		int key = 2;
-		System.out.println(practice.caeser(str, key));
-			
-	}
+    // Driver code
+    public static void main(String[] args) {
+        String characters = "bstes!hetsi ogEAxpelrt x ";
+        String document = "AlgoExpert is the best!";
+
+        System.out.println(practice.generateDocument(document, characters));
+
+    }
+
+    private static boolean generateDocument(String document, String characters) {
+
+
+
+        return false;
+    }
 }
+

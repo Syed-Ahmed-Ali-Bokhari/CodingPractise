@@ -23,10 +23,8 @@ public class firstNonRepeatingCharacter92 {
 	}
 
 	public static void main(String[] args) {
-
 		String word = "abcdcaf";
 		System.out.println(firstNonRepeatingCharacter92.firstNonrepeat(word));
-
 	}
 
 }
