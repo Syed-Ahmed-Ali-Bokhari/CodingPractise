@@ -9,29 +9,36 @@ class practice {
 
     // Driver code
     public static void main(String[] args) {
-        String characters = "bstes!hetsi ogEAxpelrt x ";
-        String document = "AlgoExpert is the best!z";
-
-        System.out.println(practice.generateDocument(document, characters));
+        System.out.println(practice.longestPalindrome("abaxyzzyxf"));
 
     }
 
-    private static boolean generateDocument(String document, String characters) {
-        Map<Character, Integer> mdoucment = new HashMap<Character, Integer>();
-        Map<Character, Integer> mcharacters = new HashMap<Character, Integer>();
+    private static String longestPalindrome(String str) {
 
+        String palindrome = "";
+        for (int i = 0; i < str.length(); i++) {
 
-        for (char w : characters.toCharArray()) {
-            mcharacters.put(w, mcharacters.getOrDefault(w, 0) + 1);
-        }
-        for (char w : document.toCharArray()) {
-            mdoucment.put(w, mdoucment.getOrDefault(w, 0) + 1);
-            if (!mcharacters.containsKey(w)||mcharacters.get(w) == 0) {
-                return false;
+            for (int j = str.length() - 1; j > i; j--) {
+                String result = str.substring(i, j + 1);
+                if (result.length() > palindrome.length() && checkPalindrome(result))
+                    palindrome = result;
+
             }
-            mcharacters.put(w,mcharacters.get(w) - 1);
+
         }
 
+        return palindrome;
+    }
+
+    static boolean checkPalindrome(String st) {
+        int i = 0;
+        int j = st.length() - 1;
+        while (i < j) {
+            if (st.charAt(i) != st.charAt(j))
+                return false;
+            i++;
+            j--;
+        }
         return true;
     }
 
